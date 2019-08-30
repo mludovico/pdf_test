@@ -152,7 +152,7 @@ void main() async {
 }
 
 Future<File> _getFile() async {
-  final directory = await getExternalStorageDirectory();
+  final directory = await getTemporaryDirectory();
   print(directory.path);
   return File("${directory.path}/teste.pdf");
 }
