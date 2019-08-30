@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:path_provider/path_provider.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart';
+import 'package:open_file/open_file.dart';
 
 void main() async {
   final Document pdf = Document();
@@ -149,6 +150,7 @@ void main() async {
 
   final File file = await _getFile();
   file.writeAsBytesSync(pdf.save());
+  OpenFile.open(file.path);
 }
 
 Future<File> _getFile() async {
